@@ -1,0 +1,22 @@
+
+podReplicas: 1
+imagePullPolicy: IfNotPresent
+restartPolicy: OnFailure
+cronJobTime: 0 00 * * *
+
+imageVersion: 1.26.1
+limitsCpu: 1
+limitsMemory: 1Gi
+requestsCpu: 0.5
+requestsMemory: 512Mi
+ephemeralStorage: 128Mi
+podPort: 80
+servicePort: 80
+
+autoscaling:
+  enabled: true 
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+  # targetMemoryUtilizationPercentage: 70
+
